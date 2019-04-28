@@ -12,19 +12,17 @@ def index():
   return render_template(login.html)
 
 @app.route('/login', methods = ['GET' , 'POST'])
+def login():
    if request.method == 'POST':
-     
-	 user_name = request.form['loginname']
-	 
-	 if user_name == 'admin':
-	   return render_template('admin.html')
-	 
+     user_name = request.form['loginname']
+     if user_name == 'admin':
+       return render_template('admin.html')
      elif user_name == '':
-       return redirect(url_for('index')
-
+       return redirect(url_for('index'))
      else:
-	   return render_template('homepage.html',username = user_name)
-
+       return render_template('homepage.html',username = user_name)
+   else:
+     return redirect(url_for('login'))
 
 @app.route('/home')
 def home():
@@ -33,16 +31,15 @@ def home():
     bookname = request.form['bookname']
     author = request.form['author']
     	
-	if bookname =! '' && author == '':
-	  return redirect(url_for('read', bookname=bookname))
+    if (bookname != '' and author == ''):
+      return redirect(url_for('read', bookname=bookname))
 	  
-	elif bookname == '' && author != '':
+    elif (bookname == '' and author != ''):
       return redirect(url_for('listbooks', author=author))
 
-	else:
-       return redirect(url_for('exact',bookname=bookname, author=author ))
+    else:
+      return redirect(url_for('exact',bookname=bookname, author=author ))
 
-	   
 @app.route('/read/<bookname>')
 def read(bookname):
   query = {"title": "%s" %bookname}
@@ -51,5 +48,7 @@ def read(bookname):
   for text in content:
     x = (text["story"])
 	
-  return render_template('read.html', content = x)	   
- 
+  return render_template('read.html', content = x)
+
+if __name__ == '__main__':
+   app.run(debug = True) 
