@@ -3,25 +3,21 @@
 
 .bg-img{
   /* The image used */
-    background-image: url("homepage.jpg");
+    background-image: url("/project/templates/login.jpg");
 
   /* Control the height of the image */
-    min-height: 650px;
+    min-height: 600px;
   /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-	
-    background-size: 100%;
-	max-width: 100000px;
+    background-size: auto;
     position: relative;
-	height: 100%;
-    width: 100%;
 }
 
 .bg-img h1{
     background: #2A88AD;
-	padding: 10px 10px 20px 30px;
-	margin: -25px -25px 25px -25px; /* this is for shifting the heading tab */
+	padding: 10px 10px 15px 30px;
+	margin: -25px -25px 25px -25px;
 	border-radius: 10px 10px 0 0;
 	-webkit-border-radius: 10px 10px 0 0;
 	-moz-border-radius: 10px 10px 0 0;
@@ -32,7 +28,6 @@
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	border: 1px solid #257C9E;
-        
 }
 
 .bg-img h1 > span{
@@ -41,20 +36,11 @@
 	text-align: center;
 	font: 45px Verdana, Helvetica, sans-serif;
 }
-
-.bg-img .section{
-	font: normal 30px 'Bitter', serif;
-	color: #F8F8F8;
-	margin-bottom: 20px; /* this is to put space below or above the selected object */
-}
-
 .form-style-10{
 	width:350px;
-	opticity: 0.5;
-	padding: 10px;  /* this is total form area */
+	padding:30px;
 	margin:10px auto;
 	background: #FFF;
-	background: rgba(0, 0, 0, 0.7);
 	border-radius: 10px;
 	-webkit-border-radius:10px;
 	-moz-border-radius: 10px;
@@ -63,27 +49,16 @@
 	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
 .form-style-10 .inner-wrap{
-	padding: 20px;
-	background: #;
-	background: rgba(0, 0, 0, 0);
+	padding: 30px;
+	background: #F8F8F8;
 	border-radius: 6px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
-
-.form-style-10 .button-wrap{
-	padding: 20px;
-	background: #;
-	background: rgba(0, 0, 0, 0); /* this is for making form transperant. the last 0 decide the opiticity */
-	border-radius: 6px; /* this is for making button curvy */
-	margin-bottom: 10px;
-}
-
 .form-style-10 h1{
 	background: #2A88AD;
-	text-align: center;-	
 	padding: 20px 30px 15px 30px;
 	margin: -30px -30px 30px -30px;
-	border-radius: px 10px 0 0;
+	border-radius: 10px 10px 0 0;
 	-webkit-border-radius: 10px 10px 0 0;
 	-moz-border-radius: 10px 10px 0 0;
 	color: #fff;
@@ -134,16 +109,13 @@
 
 .form-style-10 .section{
 	font: normal 20px 'Bitter', serif;
-	color:  #fff;
+	color: #2A88AD;
 	margin-bottom: 5px;
-	margin-top: 5px;
 }
 .form-style-10 .section span {
 	background: #2A88AD;
 	padding: 5px 10px 5px 10px;
 	position: absolute;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -153,13 +125,10 @@
 	color: #fff;
 	margin-top: -3px;
 }
-
 .form-style-10 input[type="button"], 
 .form-style-10 input[type="submit"]{
 	background: #2A88AD;
 	padding: 8px 20px 8px 20px;
-	margin-bottom: 20px;
-	margin-top: 5px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -172,24 +141,6 @@
 	border: 1px solid #257C9E;
 	font-size: 15px;
 }
-
-.form-style-10 input[type="button"], 
-.form-style-10 input[type="random"]{
-	background: #2A88AD;
-	padding: 8px 20px 8px 20px;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	color: #fff;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-	font: normal 30px 'Bitter', serif;
-	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-	border: 1px solid #257C9E;
-	font-size: 15px;
-}
-
 .form-style-10 input[type="button"]:hover, 
 .form-style-10 input[type="submit"]:hover{
 	background: #2A6881;
@@ -197,15 +148,6 @@
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 }
-
-.form-style-10 input[type="button"]:hover, 
-.form-style-10 input[type="random"]:hover{
-	background: #2A6881;
-	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
-	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
-	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
-}
-
 .form-style-10 .privacy-policy{
 	float: right;
 	width: 250px;
@@ -214,63 +156,20 @@
 	margin-top: 10px;
 	text-align: right;
 }
-
-.h2{
-	background-color: #195167;
-	text-align: right;
-	margin: -25px -15px 20px -15px;
-	border-radius: 10px 10px 0 0;
-	padding: 10px;
-	font-family: Arial, Helvetica, sans-serif;
-    font: 25px;
-	color: #fff;
-}
-
-.button {
-  background-color: #4CAF50;
-  border-radius: 12px;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  margin: 4px 2px;
-  cursor: pointer;
-  margin-bottom: 0px;
-}
-	
 </style>
 
 <div class="bg-img">
 
-<h1><span>Sam's Digital Library</span></h1>
-<h2 div class = h2>Hi {{ username }}</h2>
+<h1><span>Sam's Digital Liberary</span></h1>
 
-<form action = "http://localhost:5000/info" method = 'POST' class="form-style-10">
-
-    <div class="section">Search Your Favourate Book Here</div>
+<form action = "http://35.154.22.15:5000/home" method = "POST" class="form-style-10">
+    <div class="section">Just Need Your Name To Greet You</div>
     <div class="inner-wrap">
-        <label><input type="bookname" name="bookname" /></label>
+        <label>Your Full Name <input type="text" name="loginname" /></label>
     </div>
 
-    <div class="section"><span>or</span>Search By Author</div>
-        <div class="inner-wrap">
-        <label><input type="author" name="author" /></label>
-    </div>
-	
-		
 	<div class="button-section">
-     <input type="submit" value="submit" />
-	</div>
-
-    <div class="section"><span>or</span>Browse Collection</div>
-	   <div class="button-wrap">
-		   <a href="http://localhost:5000/booklist" class="button">list all books</a>
-	   </div>   
-
-
-</form>	
+     <input type="submit" name="submit" />
+	</div> 
+</form>
 </div>
-	
