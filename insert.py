@@ -19,13 +19,15 @@ x = mycol.insert({
 
 # fetch data
 query = { "author": "Ayn Rand" }
-content = mycol.find(query)
+#content = mycol.find(query)
 
+content = mycol.find()
 for text in content:
   #print(text)
   book=(text["title"])
   author=(text['author'])
-  print ('%s'+':'+' %s') %(book ,author)
+  print(text["title"])
+  #print ('%s'+':'+' %s') %(book ,author)
   #print('%s'+':'+ '%s') %('title', 'author')
 #list database
 #print (server.list_database_names())

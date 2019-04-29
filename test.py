@@ -39,29 +39,36 @@ def home():
 
     else:
       return redirect(url_for('exact',bookname=bookname, author=author ))
-'''
-@app.route('/booksbyauthor/<author>')
-def booksbyauthor(author):
-  if request.method == 'POST':
-    query = {"author"}
-'''
+
+
 @app.route(/booklist)
 def booklist():
   content = mycol.find()
   for x in content:
     booklist = (x['title'])
 
+  return render_template('booklist.html', booklist = booklist)
 
-'''
 @app.route('/read/<bookname>')
 def read(bookname):
   query = {"title": "%s" %bookname}
   content = mycol.find(query)
   
   for text in content:
-    x = (text["story"])
+    data = (text["story"])
 	
-  return render_template('read.html', content = x)
-'''
+  return render_template('read.html', story = data)
+
+@app.route('/bookbyauthor/<author>')
+def bookbyauthor():
+  query = {"author": "%s" %author}
+  content = mycol.find(query)
+  
+  for books in content:
+    booksbyauthor = (books["title"])
+  
+  return render_template("booksbyauthor.html", booklist = booksbyauthor) 
+
+
 if __name__ == '__main__':
    app.run(host = '0.0.0.0',debug = True) 
