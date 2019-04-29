@@ -9,22 +9,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template(login.html)
+  return render_template('login.html')
 
-@app.route('/login', methods = ['GET' , 'POST'])
+@app.route('/home', methods = ['GET' , 'POST'])
 def login():
+   
    if request.method == 'POST':
      user_name = request.form['loginname']
      if user_name == 'admin':
-       return render_template('admin.html')
+        return render_template('admin.html')
      elif user_name == '':
        return redirect(url_for('index'))
      else:
        return render_template('homepage.html',username = user_name)
-   else:
-     return redirect(url_for('login'))
 
-@app.route('/home')
+
+@app.route('/info')
 def home():
   if request.method == 'POST':
     
@@ -35,11 +35,24 @@ def home():
       return redirect(url_for('read', bookname=bookname))
 	  
     elif (bookname == '' and author != ''):
-      return redirect(url_for('listbooks', author=author))
+      return redirect(url_for('booksbyauthor', author=author))
 
     else:
       return redirect(url_for('exact',bookname=bookname, author=author ))
+'''
+@app.route('/booksbyauthor/<author>')
+def booksbyauthor(author):
+  if request.method == 'POST':
+    query = {"author"}
+'''
+@app.route(/booklist)
+def booklist():
+  content = mycol.find()
+  for x in content:
+    booklist = (x['title'])
 
+
+'''
 @app.route('/read/<bookname>')
 def read(bookname):
   query = {"title": "%s" %bookname}
@@ -49,6 +62,6 @@ def read(bookname):
     x = (text["story"])
 	
   return render_template('read.html', content = x)
-
+'''
 if __name__ == '__main__':
-   app.run(debug = True) 
+   app.run(host = '0.0.0.0',debug = True) 
