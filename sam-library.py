@@ -26,6 +26,7 @@ def login():
 
 @app.route('/info')
 def home():
+  username = login.user_name
   if request.method == 'POST':
     
     bookname = request.form['bookname']
@@ -38,36 +39,42 @@ def home():
       return redirect(url_for('booksbyauthor', author=author))
 
     else:
-      return redirect(url_for('exact',bookname=bookname, author=author ))
+      return redirect(url_for('read',bookname=bookname))
 
 
-@app.route(/booklist)
+@app.route('/booklist')
 def booklist():
+  login()
+  username = login.user_name
   content = mycol.find()
   for x in content:
     booklist = (x['title'])
 
-  return render_template('booklist.html', booklist = booklist)
+  return render_template('booklist.html', booklist = booklist, username=username)
 
 @app.route('/read/<bookname>')
 def read(bookname):
+  login()
+  username = login.user_name
   query = {"title": "%s" %bookname}
   content = mycol.find(query)
   
   for text in content:
     data = (text["story"])
 	
-  return render_template('read.html', story = data)
+  return render_template('read.html', story = data, bookname = bookname, username=username)
 
 @app.route('/bookbyauthor/<author>')
 def bookbyauthor():
+  login()
+  username = login.user_name
   query = {"author": "%s" %author}
   content = mycol.find(query)
   
   for books in content:
     booksbyauthor = (books["title"])
   
-  return render_template("booksbyauthor.html", booklist = booksbyauthor) 
+  return render_template("booksbyauthor.html", booklist = booksbyauthor, username=usernamae) 
 
 
 if __name__ == '__main__':
