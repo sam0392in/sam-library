@@ -1,0 +1,31 @@
+from flask import Flask, redirect, url_for, render_template, request, jsonify
+import pymongo
+
+PYTHONIOENCODING = "utf-8"
+
+server = pymongo.MongoClient("mongodb://mongodb:27017/")
+mydb = server["samlibrary"]
+mycol = mydb["books"]
+
+app = Flask(__name__)
+
+@app.route('/read/<bookname>', methods = ['GET', 'POST'])
+def read(bookname):
+  #login()
+  data = {}
+  #username = login.user_name
+  if request.method == 'GET':
+    query = {"title": bookname }
+    #query = {"title": "fountain head"}
+    content = mycol.find(query)
+
+    for text in content:
+      data = (text["story"])
+      #print("hello")
+    #return render_template('read.html', story = data, bookname = bookname)
+    return "%s" % (data)
+    #return "test response--> %s" %bookname
+
+if __name__ == '__main__':
+   app.run(host = '0.0.0.0',debug = True)
+

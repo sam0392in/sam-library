@@ -12,24 +12,25 @@ app = Flask(__name__)
 #Insert data
 
 x = mycol.insert({
-      "title": "Atlas Shrugged",
-       "author": "Ayn Rand",
-      "story": "this is the test content for sample book Atlas Shrugged which sould be shown in UI. also this might have multiple line in the file qwhich shoudld dsnkdlgnh" })
+      "title": "roads",
+       "author": "stuti",
+      "story": "this is the test content for sample book Roads which sould be shown in UI. also this might have multiple line in the file qwhich shoudld dsnkdlgnh" })
 '''
 
 # fetch data
-query = { "author": "Ayn Rand" }
+query = { "title": "roads" }
 #content = mycol.find(query)
 
-content = mycol.find()
+content = mycol.find(query)
 for text in content:
   #print(text)
   book=(text["title"])
   author=(text['author'])
   print(text["title"])
+  print(text['story'])
   #print ('%s'+':'+' %s') %(book ,author)
   #print('%s'+':'+ '%s') %('title', 'author')
 #list database
 #print (server.list_database_names())
-
-
+#data=data.encode("utf-8")
+#print(type(data))
