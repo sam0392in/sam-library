@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  app:			
+    image: sam0392in/sam-library:1.0
+    depends_on:			
+      - mongo
+    container_name: sam-app
+    restart: always
+    links:
+      - mongo
+    entrypoint: python /home/tmp/sam-library.py
+
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    entrypoint: mongod --bind_ip_all
